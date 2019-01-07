@@ -6,14 +6,14 @@
 #    By: azkeever <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/02 10:36:43 by azkeever          #+#    #+#              #
-#    Updated: 2019/01/07 14:21:51 by azkeever         ###   ########.fr        #
+#    Updated: 2019/01/07 15:36:39 by azkeever         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = gnl
 HEADER = get_next_line.h
 LIBRARY = libft/libft.a
-SOURCE = get_next_line.c 
+SOURCE = get_next_line.c gnl1_2.c
 
 all: $(NAME)
 
