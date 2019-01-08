@@ -6,10 +6,9 @@
 /*   By: azkeever <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 08:56:32 by azkeever          #+#    #+#             */
-/*   Updated: 2019/01/08 14:51:09 by azkeever         ###   ########.fr       */
+/*   Updated: 2019/01/08 12:19:03 by azkeever         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "get_next_line.h"
 
 int		get_next_line(int fd, char **line)
@@ -38,11 +37,7 @@ int		get_next_line(int fd, char **line)
 			*line = ft_strcat(*line, buff);
 			ft_memset((void *)buff, 0, BUFF_SIZE);
 		}
-	if (nbread == -1)
-	{
-		ft_putendl("returned -1 ");
+	if (nbread == -1 || nbread == 0)
 		return (-1);
-	}
-	ft_putendl("returning 0");
 	return (0);
 }

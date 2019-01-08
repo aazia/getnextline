@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "gnl.h"
+#include "get_next_line.h"
 
 /*
-** 2 lines with 8 chars with Line Feed
+** 2 lines with 8 chars without Line Feed
 */
 
 int				main(void)
@@ -17,7 +17,7 @@ int				main(void)
 	char		*filename;
 	int			errors;
 
-	filename = "gnl1_2.txt";
+	filename = "gnl7_2.txt";
 	fd = open(filename, O_RDONLY);
 	if (fd > 2)
 	{
@@ -26,19 +26,28 @@ int				main(void)
 		line = NULL;
 		while ((ret = get_next_line(fd, &line)) > 0)
 		{
+			ft_putnbr(ret);
+			ft_putendl("= return");
+			ft_putstr("line = ");
+			ft_putendl(line);
 			if (count_lines == 0 && strcmp(line, "1234567") != 0)
 				errors++;
-			if (count_lines == 1 && strcmp(line, "abcdefg") != 0)
+			if (count_lines == 1 && strcmp(line, "abcdefgh") != 0)
 				errors++;
 			count_lines++;
 			if (count_lines > 50)
 				break ;
 		}
+
+			ft_putnbr(ret);
+			ft_putendl(" = return");
+			ft_putstr("line = ");
+			ft_putendl(line);
 		close(fd);
 		if (count_lines != 2)
 			printf("-> must have returned '1' twice instead of %d time(s)\n", count_lines);
 		if (errors > 0)
-			printf("-> must have read \"1234567\" and \"abcdefg\"\n");
+			printf("-> must have read \"1234567\" and \"abcdefgh\"\n");
 		if (count_lines == 2 && errors == 0)
 			printf("OK\n");
 	}
